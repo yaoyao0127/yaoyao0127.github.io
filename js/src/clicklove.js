@@ -23,7 +23,7 @@
             y: e.clientY - 5,
             scale: 1,
             alpha: 1,
-            color: s()
+            color: 'pink',
         }), t.body.appendChild(a)
     }
 
