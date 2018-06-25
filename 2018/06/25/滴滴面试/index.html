@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src 事件代理 闭包 继承链 JS数据类型：原始值（number string boolean null undefined）引用值（array） css实现自适应的父级box内部一个左上角的div，一个水平垂直居中的div，一个右下角的div。我说了绝对定位，提问flex怎么实现。 position相关。子元素设成absolute之后，父元素不">
+<meta name="description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;    &amp;lt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="滴滴面试">
 <meta property="og:url" content="http://yaoyao0127.github.io/2018/06/25/滴滴面试/index.html">
 <meta property="og:site_name" content="爱笑的yaoyao">
-<meta property="og:description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src 事件代理 闭包 继承链 JS数据类型：原始值（number string boolean null undefined）引用值（array） css实现自适应的父级box内部一个左上角的div，一个水平垂直居中的div，一个右下角的div。我说了绝对定位，提问flex怎么实现。 position相关。子元素设成absolute之后，父元素不">
+<meta property="og:description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;    &amp;lt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-25T05:34:38.000Z">
+<meta property="og:updated_time" content="2018-06-25T13:52:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="滴滴面试">
-<meta name="twitter:description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src 事件代理 闭包 继承链 JS数据类型：原始值（number string boolean null undefined）引用值（array） css实现自适应的父级box内部一个左上角的div，一个水平垂直居中的div，一个右下角的div。我说了绝对定位，提问flex怎么实现。 position相关。子元素设成absolute之后，父元素不">
+<meta name="twitter:description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;    &amp;lt;">
 
 
 
@@ -333,12 +333,17 @@
       
         <p>滴滴电话面试</p>
 <ol>
-<li>图片列表，点击任何一个图片弹出他的src</li>
-<li>事件代理</li>
+<li><p>图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;index&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">        &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  window.onload = function()&#123;</span><br><span class="line">    var list = document.getElementById(&apos;list&apos;).getElementsByTagName(&apos;li&apos;);</span><br><span class="line">    for(var i=0;i&lt;list.length;i++)&#123;</span><br><span class="line">        list[i].index=i;</span><br><span class="line">            list[i].onclick=function()&#123;</span><br><span class="line">                alert(this.index);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事件代理</p>
+</li>
 <li>闭包</li>
-<li>继承链</li>
+<li>原型链。原始值类型没有原型链，引用类型和构造器才有原型链</li>
 <li>JS数据类型：原始值（number string boolean null undefined）引用值（array）</li>
-<li>css实现自适应的父级box内部一个左上角的div，一个水平垂直居中的div，一个右下角的div。我说了绝对定位，提问flex怎么实现。</li>
+<li>css实现宽度高度自适应的父级box内部一个左上角的div，一个水平垂直居中的div，一个右下角的div。我说了绝对定位，提问flex怎么实现。</li>
+<li>position为absolute时，会相对于static的元素定位吗？不会，应该是相对于任何position不是static的第一个父级元素定位。position为relative时，相对于浏览器窗口定位。</li>
+<li>css如何将导航条固定在顶部？fixed布局相对于浏览器定位，top设为0px即可。</li>
 <li>position相关。子元素设成absolute之后，父元素不是relative怎么办？子元素设成relative，left和top都是auto会怎么样？</li>
 <li>HTTP状态码</li>
 <li>跨域的几种方式</li>
