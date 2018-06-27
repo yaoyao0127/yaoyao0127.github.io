@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。 ==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。 JS中的对象（对象才有原型链）####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新的对">
+<meta name="description" content="“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。 ==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。 JS中的三种对象（对象才有原型链）####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记--javascript编程艺术">
 <meta property="og:url" content="http://yaoyao0127.github.io/2018/06/25/读书笔记--javascript编程艺术/index.html">
 <meta property="og:site_name" content="爱笑的yaoyao">
-<meta property="og:description" content="“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。 ==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。 JS中的对象（对象才有原型链）####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新的对">
+<meta property="og:description" content="“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。 ==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。 JS中的三种对象（对象才有原型链）####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-25T13:32:28.000Z">
+<meta property="og:updated_time" content="2018-06-26T07:55:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记--javascript编程艺术">
-<meta name="twitter:description" content="“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。 ==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。 JS中的对象（对象才有原型链）####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新的对">
+<meta name="twitter:description" content="“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。 ==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。 JS中的三种对象（对象才有原型链）####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新">
 
 
 
@@ -334,7 +334,7 @@
         <ol>
 <li>“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。</li>
 <li>==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。</li>
-<li>JS中的对象（对象才有原型链）<br>####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新的对象实例。</li>
+<li>JS中的三种对象（对象才有原型链）<br>####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新的对象实例。</li>
 </ol>
 <ul>
 <li>Array</li>
@@ -343,7 +343,8 @@
 <li>Form</li>
 <li>Image</li>
 <li>Element</li>
-<li>document<br>####用户定义对象：用户可以编写构造器函数来定义自己想要生成的对象，用new关键字来创建自己的对象实例。实例可以修改、新增、删除已有的属性和方法。</li>
+<li>document<br>####用户定义对象：用户可以编写构造器函数来定义自己想要生成的对象，用new关键字来创建自己的对象实例。实例可以修改、新增、删除已有的属性和方法。<br><code>`</code><br>//如何自定义对象<br>//1. 直接新建对象<br>person = new Object();<br>person.name = “mary”;<br>person.age = “20”;<br>person.changeName = function(name){<br>  this.name=”mary”;<br>}<br>//2. 用函数构造对象,先写构造器函数，再new实例<br>function person(name,age){<br>  this.name = name;<br>  this.age = age;<br>  this.changeName = function (name){<pre><code>this.name=&quot;mary&quot;;
+</code></pre>  }<br>}<br>var me = new person(‘me’,’20’);</li>
 </ul>
 
       
@@ -402,6 +403,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/26/JS三座大山：原型与原型链/" rel="prev" title="JS三座大山：原型与原型链">
+                JS三座大山：原型与原型链 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -473,7 +478,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -484,7 +489,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

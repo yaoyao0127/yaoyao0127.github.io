@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;    &amp;lt;">
+<meta name="description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 1234567891011121314151617181920212223242526272829303132333435363738用事件委托&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charse">
 <meta property="og:type" content="article">
 <meta property="og:title" content="滴滴面试">
 <meta property="og:url" content="http://yaoyao0127.github.io/2018/06/25/滴滴面试/index.html">
 <meta property="og:site_name" content="爱笑的yaoyao">
-<meta property="og:description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;    &amp;lt;">
+<meta property="og:description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 1234567891011121314151617181920212223242526272829303132333435363738用事件委托&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charse">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-26T01:19:19.000Z">
+<meta property="og:updated_time" content="2018-06-27T10:07:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="滴滴面试">
-<meta name="twitter:description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 12345678910111213141516171819202122232425&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;    &amp;lt;">
+<meta name="twitter:description" content="滴滴电话面试  图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。 1234567891011121314151617181920212223242526272829303132333435363738用事件委托&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charse">
 
 
 
@@ -334,23 +334,44 @@
         <p>滴滴电话面试</p>
 <ol>
 <li><p>图片列表，点击任何一个图片弹出他的src;点击列表项弹出其index。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;index&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">        &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  window.onload = function()&#123;</span><br><span class="line">    var list = document.getElementById(&apos;list&apos;).getElementsByTagName(&apos;li&apos;);</span><br><span class="line">    for(var i=0;i&lt;list.length;i++)&#123;</span><br><span class="line">        list[i].index=i;</span><br><span class="line">            list[i].onclick=function()&#123;</span><br><span class="line">                alert(this.index);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">用事件委托</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;index&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">        &lt;li&gt;&lt;img src =&quot;./1.jpg&quot;&gt;&lt;/img&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  window.onload = function()&#123;</span><br><span class="line">    var _ul = document.getElementById(&quot;_ul&quot;);</span><br><span class="line">    var _li =document.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">    for(let i=0;i&lt;_li.length;i++)&#123;</span><br><span class="line">        _li[i].setAttribute(&quot;id&quot;,i);</span><br><span class="line">    &#125;</span><br><span class="line">    _ul.onclick = function(event)&#123;</span><br><span class="line">        var event = event || window.event;</span><br><span class="line">        var target = event.target || event.srcElement;</span><br><span class="line">        console.log(event);</span><br><span class="line">        var _name = target.nodeName;</span><br><span class="line">        switch(_name.toLowerCase())&#123;</span><br><span class="line">            case &quot;img&quot;:</span><br><span class="line">                alert(target.src);</span><br><span class="line">                break;</span><br><span class="line">            case &quot;li&quot;:</span><br><span class="line">                alert(target.id);</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>事件代理</p>
 </li>
 <li>闭包</li>
-<li>原型链。原始值类型没有原型链，引用类型和构造器才有原型链</li>
-<li>JS数据类型：原始值（number string boolean null undefined）引用值（array）</li>
+<li>原型与原型链。原始值类型没有原型链，引用类型（数组、对象、函数）才有原型链。</li>
+<li>JS数据类型：原始值（number string boolean null undefined）引用值（array object 用户自定义构造器函数）</li>
 <li>css实现宽度高度自适应的父级box内部一个左上角的div，一个水平垂直居中的div，一个右下角的div。我说了绝对定位，提问flex怎么实现。</li>
-<li>position为absolute时，会相对于static的元素定位吗？不会，应该是相对于任何position不是static的第一个父级元素定位。position为relative时，相对于浏览器窗口定位。</li>
+<li>position为absolute时，会相对于static的元素定位吗？<br>position默认为static；position为relative时，相对于自己本身的位置进行定位；position为absolute时，相对于任何position不是static的第一个父级元素定位；position为fixed时，相对于浏览器窗口定位。</li>
 <li>css如何将导航条固定在顶部？fixed布局相对于浏览器定位，top设为0px即可。</li>
 <li>position相关。子元素设成absolute之后，父元素不是relative怎么办？子元素设成relative，left和top都是auto会怎么样？</li>
 <li>HTTP状态码</li>
+</ol>
+<ul>
+<li>1开头：信息类。</li>
+<li>2开头：响应成功类。如200，成功接收请求并发回资源。</li>
+<li>3开头：重定向类。</li>
+<li>4开头：客户端错误类。如404，找不到资源；400，客户端语法错误。</li>
+<li>5开头：服务器错误类。如500，服务器内部错误。</li>
+</ul>
+<ol start="11">
 <li>跨域的几种方式</li>
+</ol>
+<ul>
+<li>CORS</li>
+<li>JSONP</li>
+</ul>
+<ol start="12">
 <li>webpack插件</li>
 <li>react和vue的生命周期</li>
-<li>v-show和v-if的区别  v-show只是css层级的切换，v-if是渲染层级的切换。</li>
-<li>vue双向数据绑定怎么实现的。</li>
+</ol>
+<ul>
+<li>react:mounting、updating、unmounting</li>
+<li>vue:created、mounted、updated、destoryed</li>
+</ul>
+<ol start="14">
+<li>v-show和v-if的区别<br>v-show只是css层级的切换，v-if是渲染层级的切换。</li>
+<li>vue双向数据绑定怎么实现的。<br>发布订阅模式结合属性劫持。</li>
 <li>git指令</li>
 <li>linux指令</li>
 <li>二分查找</li>
@@ -489,7 +510,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -500,7 +521,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

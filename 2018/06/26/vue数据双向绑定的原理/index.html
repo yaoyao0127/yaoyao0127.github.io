@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="不喜欢化妆的前端er不是好老师">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yaoyao0127.github.io/categories/index.html">
+<meta name="description" content="数据绑定的三种实现方法。将对象属性变化绑定到UI。  发布者-订阅者模式 脏检查。在指定的事件触发时，通过setInterval()定时轮询检测数据变化。 数据劫持。通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变化的时候发布消息给订阅者，触发相应的监听回调。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue数据双向绑定的实现原理">
+<meta property="og:url" content="http://yaoyao0127.github.io/2018/06/26/vue数据双向绑定的原理/index.html">
 <meta property="og:site_name" content="爱笑的yaoyao">
-<meta property="og:description" content="不喜欢化妆的前端er不是好老师">
+<meta property="og:description" content="数据绑定的三种实现方法。将对象属性变化绑定到UI。  发布者-订阅者模式 脏检查。在指定的事件触发时，通过setInterval()定时轮询检测数据变化。 数据劫持。通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变化的时候发布消息给订阅者，触发相应的监听回调。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-21T05:25:53.000Z">
+<meta property="og:updated_time" content="2018-06-26T07:21:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="不喜欢化妆的前端er不是好老师">
+<meta name="twitter:title" content="vue数据双向绑定的实现原理">
+<meta name="twitter:description" content="数据绑定的三种实现方法。将对象属性变化绑定到UI。  发布者-订阅者模式 脏检查。在指定的事件触发时，通过setInterval()定时轮询检测数据变化。 数据劫持。通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变化的时候发布消息给订阅者，触发相应的监听回调。">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yaoyao0127.github.io/categories/"/>
+  <link rel="canonical" href="http://yaoyao0127.github.io/2018/06/26/vue数据双向绑定的原理/"/>
 
 
 
 
 
-  <title>分类 | 爱笑的yaoyao</title>
+  <title>vue数据双向绑定的实现原理 | 爱笑的yaoyao</title>
   
 
 
@@ -230,40 +230,193 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yaoyao0127.github.io/2018/06/26/vue数据双向绑定的原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱笑的yaoyao">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 7 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react和vue/">react和vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/好物推荐（技术类）/">好物推荐（技术类）</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构与算法/">数据结构与算法</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/日杂/">日杂</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试复盘/">面试复盘</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">vue数据双向绑定的实现原理</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T15:04:53+08:00">
+                2018-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>数据绑定的三种实现方法。将对象属性变化绑定到UI。</p>
+<ol>
+<li>发布者-订阅者模式</li>
+<li>脏检查。在指定的事件触发时，通过setInterval()定时轮询检测数据变化。</li>
+<li>数据劫持。通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变化的时候发布消息给订阅者，触发相应的监听回调。</li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你愿意给我买糖糖吗</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wx.jpg" alt="yaoyao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/26/JS三座大山：异步与单线程/" rel="next" title="JS三座大山：异步与单线程">
+                <i class="fa fa-chevron-left"></i> JS三座大山：异步与单线程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/26/数组的几个方法/" rel="prev" title="数组的几个方法">
+                数组的几个方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
