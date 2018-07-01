@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。 ==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。 JS中的三种对象（对象才有原型链）####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-26T07:55:45.000Z">
+<meta property="og:updated_time" content="2018-07-01T02:50:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记--javascript编程艺术">
 <meta name="twitter:description" content="“+”运算符:左右操作数是number时，作为加法运算符，结果是number；左右操作数只要有一个是string时，作为拼接运算符，结果是string，操作数中的number将被强制转换成string。 ==会得到空字符串与false相等的结果，===不仅会比较值，还会比较类型。 JS中的三种对象（对象才有原型链）####内建对象：JS本身内置的对象，有固定的属性和方法，用new关键字即可创建新">
@@ -343,8 +343,8 @@
 <li>Form</li>
 <li>Image</li>
 <li>Element</li>
-<li>document<br>####用户定义对象：用户可以编写构造器函数来定义自己想要生成的对象，用new关键字来创建自己的对象实例。实例可以修改、新增、删除已有的属性和方法。<br><code>`</code><br>//如何自定义对象<br>//1. 直接新建对象<br>person = new Object();<br>person.name = “mary”;<br>person.age = “20”;<br>person.changeName = function(name){<br>  this.name=”mary”;<br>}<br>//2. 用函数构造对象,先写构造器函数，再new实例<br>function person(name,age){<br>  this.name = name;<br>  this.age = age;<br>  this.changeName = function (name){<pre><code>this.name=&quot;mary&quot;;
-</code></pre>  }<br>}<br>var me = new person(‘me’,’20’);</li>
+<li>document<br>####用户定义对象：用户可以编写构造器函数来定义自己想要生成的对象，用new关键字来创建自己的对象实例。实例可以修改、新增、删除已有的属性和方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//如何自定义对象</span><br><span class="line">//1. 直接新建对象</span><br><span class="line">person = new Object();</span><br><span class="line">person.name = &quot;mary&quot;;</span><br><span class="line">person.age = &quot;20&quot;;</span><br><span class="line">person.changeName = function(name)&#123;</span><br><span class="line">    this.name=&quot;mary&quot;;</span><br><span class="line">&#125;</span><br><span class="line">//2. 用函数构造对象,先写构造器函数，再new实例</span><br><span class="line">function person(name,age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">    this.changeName = function (name)&#123;</span><br><span class="line">       this.name=&quot;mary&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var me = new person(&apos;me&apos;,&apos;20&apos;);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
@@ -478,7 +478,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -489,7 +489,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

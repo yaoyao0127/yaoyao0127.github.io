@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="DOM:Document Object Model，文档对象模型。 获取DOM元素的方法   DOM之间的相互关系：每个DOM元素都存放着一组指向他的直系父、子、兄弟的指针，可以通过这些指针的连接关系来访问DOM元素。 document.getElementById(“”) document.getElementsByTagName(“”)：返回一组NodeList。 document.getE">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-27T14:05:52.000Z">
+<meta property="og:updated_time" content="2018-06-30T15:36:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文档对象模型DOM相关">
 <meta name="twitter:description" content="DOM:Document Object Model，文档对象模型。 获取DOM元素的方法   DOM之间的相互关系：每个DOM元素都存放着一组指向他的直系父、子、兄弟的指针，可以通过这些指针的连接关系来访问DOM元素。 document.getElementById(“”) document.getElementsByTagName(“”)：返回一组NodeList。 document.getE">
@@ -362,8 +362,11 @@
 <li><p>获取元素的特性</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//常规写法</span><br><span class="line">document.getElementById(&quot;Elementname&quot;).getAttribute(&quot;attributeName&quot;)</span><br><span class="line">document.getElementById(&quot;Elementname&quot;).setAttribute(&quot;attributeName&quot;:&quot;value&quot;)</span><br><span class="line">//现代DOM写法</span><br><span class="line">document.getElementByTagName(&quot;Elementname&quot;)[index].value</span><br><span class="line">document.getElementByTagName(&quot;Elementname&quot;)[index].id = &quot;idName&quot;</span><br><span class="line">//一个获取和设置元素属性的函数</span><br><span class="line">function attr(element,name,value)&#123;</span><br><span class="line">    if(!name || name.constructor != String) return&apos;&apos;;</span><br><span class="line">    name = &#123;&apos;for&apos;: &apos;htmlFor&apos;,&apos;className&apos;: &apos;class&apos;&#125;[name]||name;</span><br><span class="line">    if (typeof value != &apos;undefined&apos;)&#123;</span><br><span class="line">        element[name] = value;</span><br><span class="line">        if(element.setAttribute)</span><br><span class="line">            element.setAttribute(name,value);</span><br><span class="line">    &#125;</span><br><span class="line">    return element[name] || element.getAttribute(name) || &apos;&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改DOM<br><code>`</code><br>//创建DOM元素<br>document.createElement()<br>document.createTextNode()<br>//插入DOM<br>parent.insert(node,beforeNode);<br>parent.appendChild(node);<br>//向DOM中插入HTML<br>document.getElementByTagName(‘li)[0].innerHTML = “hello”;<br>//从DOM中删除节点<br>NodeParent.remove(node);</p>
+<li><p>修改DOM</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//创建DOM元素</span><br><span class="line">document.createElement()</span><br><span class="line">document.createTextNode()</span><br><span class="line">//插入DOM</span><br><span class="line">parent.insert(node,beforeNode);</span><br><span class="line">parent.appendChild(node);</span><br><span class="line">//向DOM中插入HTML</span><br><span class="line">document.getElementByTagName(&apos;li)[0].innerHTML = &quot;hello&quot;;</span><br><span class="line">//从DOM中删除节点</span><br><span class="line">NodeParent.remove(node);</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>12种节点类型<br><tbody></tbody></p>
+<tr><br>    <td>1</td><br>    <td>元素Element</td><br></tr><br><tr><br>    <td>2</td><br>    <td>属性Attribute</td><br></tr><br><tr><br>    <td>3</td><br>    <td>文本属性Text</td><br></tr><br><tr><br>    <td>4</td><br>    <td>CDATA部分</td><br></tr><br><tr><br>    <td>5</td><br>    <td>实体引用</td><br></tr><br><tr><br>    <td>6</td><br>    <td>实体Entity</td><br></tr><br><tr><br>    <td>7</td><br>    <td>处理指令ProcessingInstruction</td><br></tr><br><tr><br>    <td>8</td><br>    <td>注释Comment</td><br></tr><br><tr><br>    <td>9</td><br>    <td>整个文档Document</td><br></tr><br><tr><br>    <td>10</td><br>    <td>文档实体提供接口DocumentType</td><br></tr><br><tr><br>    <td>11</td><br>    <td>邻接节点和他们的子树DocumentFragment</td><br></tr><br><tr><br>    <td>12</td><br>    <td>一个符号在DTD中的声明Notation</td><br></tr></li>
 </ol>
 
       
@@ -422,6 +425,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/27/事件/" rel="prev" title="事件">
+                事件 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -493,7 +500,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -504,7 +511,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
