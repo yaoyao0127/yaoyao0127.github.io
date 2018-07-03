@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="不喜欢化妆的前端er不是好老师">
+<meta name="description" content="作用域   JS中的作用域分两种，函数外就是全局作用域，函数内就是局部作用域。 全局变量在全局有效，同时可以被全局环境中的任何一个函数调用修改。 局部变量仅在它存在的函数内有效，每次调用函数时都会被重置，退出函数后即被销毁。 12345678910//直接创建一个全局变量var n = 0, a = &amp;quot;123&amp;quot;, b = [1,2,3];//函数内省略掉var定义的变量会变成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS三座大山：作用域与闭包">
 <meta property="og:url" content="http://yaoyao0127.github.io/2018/06/26/JS三座大山：作用域与闭包/index.html">
 <meta property="og:site_name" content="爱笑的yaoyao">
-<meta property="og:description" content="不喜欢化妆的前端er不是好老师">
+<meta property="og:description" content="作用域   JS中的作用域分两种，函数外就是全局作用域，函数内就是局部作用域。 全局变量在全局有效，同时可以被全局环境中的任何一个函数调用修改。 局部变量仅在它存在的函数内有效，每次调用函数时都会被重置，退出函数后即被销毁。 12345678910//直接创建一个全局变量var n = 0, a = &amp;quot;123&amp;quot;, b = [1,2,3];//函数内省略掉var定义的变量会变成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-26T06:37:54.000Z">
+<meta property="og:updated_time" content="2018-07-03T12:23:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS三座大山：作用域与闭包">
-<meta name="twitter:description" content="不喜欢化妆的前端er不是好老师">
+<meta name="twitter:description" content="作用域   JS中的作用域分两种，函数外就是全局作用域，函数内就是局部作用域。 全局变量在全局有效，同时可以被全局环境中的任何一个函数调用修改。 局部变量仅在它存在的函数内有效，每次调用函数时都会被重置，退出函数后即被销毁。 12345678910//直接创建一个全局变量var n = 0, a = &amp;quot;123&amp;quot;, b = [1,2,3];//函数内省略掉var定义的变量会变成">
 
 
 
@@ -331,7 +331,20 @@
       
 
       
-        
+        <ol>
+<li>作用域</li>
+</ol>
+<ul>
+<li>JS中的作用域分两种，函数外就是全局作用域，函数内就是局部作用域。</li>
+<li>全局变量在全局有效，同时可以被全局环境中的任何一个函数调用修改。</li>
+<li>局部变量仅在它存在的函数内有效，每次调用函数时都会被重置，退出函数后即被销毁。</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//直接创建一个全局变量</span><br><span class="line">var n = 0, a = &quot;123&quot;, b = [1,2,3];</span><br><span class="line">//函数内省略掉var定义的变量会变成一个全局变量，严格模式下这种做法会报错</span><br><span class="line">function()&#123;</span><br><span class="line">    n = 0;</span><br><span class="line">&#125;</span><br><span class="line">//定义一个局部变量</span><br><span class="line">function()&#123;</span><br><span class="line">    var n = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>闭包</li>
+</ol>
+
       
     </div>
     
@@ -463,7 +476,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

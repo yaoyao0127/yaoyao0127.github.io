@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="数据绑定的三种实现方法。将对象属性变化绑定到UI。  发布者-订阅者模式 脏检查。在指定的事件触发时，通过setInterval()定时轮询检测数据变化。 数据劫持。通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变化的时候发布消息给订阅者，触发相应的监听回调。">
+<meta name="description" content="这是一部刚上映的时候就好评如潮，频频刷到相关的朋友圈和微博，早就下载好放在手机里，却一直没有去看的电影–无问西东。为什么一直没有看呢？是因为看到大家发的那些看起来假大空的观后感而先入为主，以为又是一部中国合伙人式的梦想片，也是因为章子怡和黄晓明的海报实在让人出戏。今天终于拿起手机准备看完之后删掉好给手机腾点内存出来，却惊喜地发现，原来是一部如此触动人心，引人深思的电影。同一种精神的传承贯穿整部影片">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue数据双向绑定的实现原理">
-<meta property="og:url" content="http://yaoyao0127.github.io/2018/06/26/vue数据双向绑定的原理/index.html">
+<meta property="og:title" content="如果提前了解了你所要面对的人生，你是否还会有勇气前来？">
+<meta property="og:url" content="http://yaoyao0127.github.io/2018/07/01/如果提前了解了你所要面对的人生，你是否还会有勇气前来？/index.html">
 <meta property="og:site_name" content="爱笑的yaoyao">
-<meta property="og:description" content="数据绑定的三种实现方法。将对象属性变化绑定到UI。  发布者-订阅者模式 脏检查。在指定的事件触发时，通过setInterval()定时轮询检测数据变化。 数据劫持。通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变化的时候发布消息给订阅者，触发相应的监听回调。">
+<meta property="og:description" content="这是一部刚上映的时候就好评如潮，频频刷到相关的朋友圈和微博，早就下载好放在手机里，却一直没有去看的电影–无问西东。为什么一直没有看呢？是因为看到大家发的那些看起来假大空的观后感而先入为主，以为又是一部中国合伙人式的梦想片，也是因为章子怡和黄晓明的海报实在让人出戏。今天终于拿起手机准备看完之后删掉好给手机腾点内存出来，却惊喜地发现，原来是一部如此触动人心，引人深思的电影。同一种精神的传承贯穿整部影片">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-30T15:28:35.000Z">
+<meta property="og:updated_time" content="2018-07-03T12:14:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue数据双向绑定的实现原理">
-<meta name="twitter:description" content="数据绑定的三种实现方法。将对象属性变化绑定到UI。  发布者-订阅者模式 脏检查。在指定的事件触发时，通过setInterval()定时轮询检测数据变化。 数据劫持。通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变化的时候发布消息给订阅者，触发相应的监听回调。">
+<meta name="twitter:title" content="如果提前了解了你所要面对的人生，你是否还会有勇气前来？">
+<meta name="twitter:description" content="这是一部刚上映的时候就好评如潮，频频刷到相关的朋友圈和微博，早就下载好放在手机里，却一直没有去看的电影–无问西东。为什么一直没有看呢？是因为看到大家发的那些看起来假大空的观后感而先入为主，以为又是一部中国合伙人式的梦想片，也是因为章子怡和黄晓明的海报实在让人出戏。今天终于拿起手机准备看完之后删掉好给手机腾点内存出来，却惊喜地发现，原来是一部如此触动人心，引人深思的电影。同一种精神的传承贯穿整部影片">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yaoyao0127.github.io/2018/06/26/vue数据双向绑定的原理/"/>
+  <link rel="canonical" href="http://yaoyao0127.github.io/2018/07/01/如果提前了解了你所要面对的人生，你是否还会有勇气前来？/"/>
 
 
 
 
 
-  <title>vue数据双向绑定的实现原理 | 爱笑的yaoyao</title>
+  <title>如果提前了解了你所要面对的人生，你是否还会有勇气前来？ | 爱笑的yaoyao</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yaoyao0127.github.io/2018/06/26/vue数据双向绑定的原理/">
+    <link itemprop="mainEntityOfPage" href="http://yaoyao0127.github.io/2018/07/01/如果提前了解了你所要面对的人生，你是否还会有勇气前来？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yaoyao">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue数据双向绑定的实现原理</h1>
+          <h1 class="post-title" itemprop="name headline">如果提前了解了你所要面对的人生，你是否还会有勇气前来？</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T15:04:53+08:00">
-                2018-06-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-01T15:41:52+08:00">
+                2018-07-01
               </time>
             
 
@@ -294,8 +294,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react和vue/" itemprop="url" rel="index">
-                    <span itemprop="name">react和vue</span>
+                  <a href="/categories/日杂/" itemprop="url" rel="index">
+                    <span itemprop="name">日杂</span>
                   </a>
                 </span>
 
@@ -331,12 +331,11 @@
       
 
       
-        <p>数据绑定的三种实现方法。将对象属性变化绑定到UI。</p>
-<ol>
-<li>发布者-订阅者模式</li>
-<li>脏检查。在指定的事件触发时，通过setInterval()定时轮询检测数据变化。</li>
-<li>数据劫持。通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变化的时候发布消息给订阅者，触发相应的监听回调。</li>
-</ol>
+        <p>这是一部刚上映的时候就好评如潮，频频刷到相关的朋友圈和微博，早就下载好放在手机里，却一直没有去看的电影–无问西东。为什么一直没有看呢？是因为看到大家发的那些看起来假大空的观后感而先入为主，以为又是一部中国合伙人式的梦想片，也是因为章子怡和黄晓明的海报实在让人出戏。今天终于拿起手机准备看完之后删掉好给手机腾点内存出来，却惊喜地发现，原来是一部如此触动人心，引人深思的电影。<br>同一种精神的传承贯穿整部影片，把四个不同年代的故事串成一条线。校长吴岭澜年轻的时候也曾接受自己灵魂深处的迷茫，询问自己到底想过什么样的人生，是老校长告诉了他，人生属于自己，听从自己的内心，无问西东。在战乱的年代，少年沈光耀有心弃笔从戎，却又羁绊于双亲，校长的言行使他终于决定听从自己的内心，义无反顾地去做了飞行员，最终与敌舰同归于尽。而当年沈光耀想方设法空投食物救助的那批孤儿们中的陈鹏长大以后成为了清华大学物理系最优秀的学生，投身于我国建国初期伟大光荣的核研究事业之中，而他的同学李想在支边和说出真相为王敏佳洗刷冤屈中选择了前者，造成了王敏佳一个人的悲剧，同时却在边疆的医疗事业中拯救了更多人的生命。生活在现代的张果果的父母就是被李想救了的人之一，每年清明他们都会去给李想扫墓，其实就是对精神的传承，最终张果果坚持自己，做出了坚持自我的一些选择。<br>如果提前了解了你所要面对的人生，你是否还会有勇气前来？<br>到底有多少人不为世俗所左右在自由自在地生活？我们每天都很忙，忙着学习，忙着赶路，忙着娱乐，到底有多少人知道自己想过什么样的人生?我们的人生好像从一出生的时候，就已经看得到尽头。上小学，上初中，上重点高中，顺利考上大学，顺利考上研究生，顺利毕业找到别人眼中的好工作，顺利找到相爱且门当户对的人，顺利在30岁之前结婚，生孩子，买房。然后呢？然后每日工作，还房贷，赚奶粉钱，孝敬父母，供孩子上学，退休，幸运地话过上幸福地晚年生活，不幸的话在各种担忧中老去。这样的蓝图到底是谁来规划的？为什么我必须按照这样的人生轨迹生活？难道我的人生是一场游戏吗？下一个关卡程序早已写死？在每一个环节中出错，就要遭受世俗的流言蜚语。考不上大学就等于没有未来，研究生没有顺利毕业就等于没有努力，没有在30岁之前把自己嫁出去就等于后半生毁了，读个博士就老了。我，为什么？凭什么要按照这张蓝图努力？人生本该有一万种可能，却有一万个人活的一模一样，不知道自己活着是为了什么。生而为人，总要想明白这一生，追求的是什么。到目前为止，我人生前23年的经历使我得出的结论是我终其一生，追求的就是能够快乐地生活，仅此而已。无论什么时候，只要活的快乐就好。分享几句使我很触动的台词。还有多少父母能说出这样的话，能对自己的子女没有那么多传宗接代光宗耀祖赚钱养家的要求，而是只希望你能过好你的人生，追求你想追求的东西。                         —胡言乱语于一个周日的午后</p>
+<ul>
+<li>我们想你，能够享受到人生的乐趣，比如同你自己喜欢的女孩子结婚生子，注意，不是给我增添子孙，而是你自己，能够享受为人父母的乐趣。</li>
+<li>我怕，你还没想好怎么过这一生，你的命就没了</li>
+</ul>
 
       
     </div>
@@ -385,8 +384,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/26/JS三座大山：异步与单线程/" rel="next" title="JS三座大山：异步与单线程">
-                <i class="fa fa-chevron-left"></i> JS三座大山：异步与单线程
+              <a href="/2018/06/30/vue基础用法小结/" rel="next" title="vue相关">
+                <i class="fa fa-chevron-left"></i> vue相关
               </a>
             
           </div>
@@ -395,8 +394,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/26/数组的几个方法/" rel="prev" title="数组的几个方法">
-                数组的几个方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/03/JS基础：数据类型/" rel="prev" title="JS基础：数据类型">
+                JS基础：数据类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
