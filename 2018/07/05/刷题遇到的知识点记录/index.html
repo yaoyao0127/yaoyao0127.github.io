@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="函数内返回一个对象的方法 12345678function()&amp;#123;    ...    return&amp;#123;        cancel:function()&amp;#123;            clearInterval(timer);        &amp;#125;    &amp;#125;&amp;#125;  设置计时器的两种方法 123456//setIntervalvar timer = s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-06T01:30:36.000Z">
+<meta property="og:updated_time" content="2018-07-06T08:22:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷题遇到的知识点记录">
 <meta name="twitter:description" content="函数内返回一个对象的方法 12345678function()&amp;#123;    ...    return&amp;#123;        cancel:function()&amp;#123;            clearInterval(timer);        &amp;#125;    &amp;#125;&amp;#125;  设置计时器的两种方法 123456//setIntervalvar timer = s">
@@ -406,6 +406,34 @@
 <li>num.toString()</li>
 <li>num=””+num</li>
 </ul>
+<ol start="11">
+<li>原型链问题</li>
+</ol>
+<ul>
+<li>给一个构造添加属性，可以通过它的实例的prototype来修改。</li>
+<li>访问一个对象的方法或者是属性，首先会在该对象中寻找，如果找到则返回，如果没找到，则在其原型链上面向上寻找，直至基原型，如还未找到，则返回undefined。</li>
+<li><p>题目描述：给定一个构造函数 constructor，请完成 alterObjects 方法，将 constructor 的所有实例的 greeting 属性指向给定的 greeting 变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//传入该函数的constructor是构造器函数的一个实例，所以要沿着原型链去添加它的原型的属性</span><br><span class="line">function alterObjects(constructor, greeting) &#123;</span><br><span class="line">    constructor.prototype.greeting=greeting;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>题目描述：遍历一个对象的所有属性，忽略继承属性，也就是只输出它的所有自由属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//for...in循环会遍历所有对象及其原型链中的可枚举属性</span><br><span class="line">//hasOwnProperty()方法可以判断某对象的属性是不是它自己的自由属性，是则返回true，不是返回false</span><br><span class="line">function iterate(obj)&#123;</span><br><span class="line">    var arr=[];</span><br><span class="line">    for(var item in obj)&#123;</span><br><span class="line">        if(obj.hasOwnProperty(item))&#123;</span><br><span class="line">            var str=item+&quot;: &quot;+obj[item];</span><br><span class="line">            arr.push(str);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="12">
+<li>正则表达式的常用方法</li>
+</ol>
+<ul>
+<li>var reg=new RegExp(“a”)简写为var reg = /a/</li>
+<li>reg.test(str)：在str中搜索reg规定的字符，搜索到返回true，否则返回false</li>
+<li>str.search(/正则表达式主体/)：搜索成功返回的是第一个匹配到的元素的index，搜索不到会返回-1</li>
+<li>str.match(/正则表达式主体/)：搜索成功返回的是对象数组，搜索不到返回的是null</li>
+<li>str.replace(/正则表达式主体/,’要换成的字符串’)：将搜索到的字符替换为参数2中的字符串。</li>
+<li>修饰符：i不区分大小写，g全局查找，m多行匹配</li>
+<li>量词：n+包含至少一个n,n*包含零个或多个n,n?包含零个或一个n</li>
+<li>[]表示范围，可以写[a,e,i]来匹配aei中的任意一个。(x|y)表示查找任何以|分隔的选项。</li>
+<li>\d表示数字，\D表示非数字，\s表示空白字符，\S表示非空白字符</li>
+<li>用小括号可以进行分组，如/(分组1)(分组2)\1/，其中，\1表示反向引用第一个分组，可以测试是否有符合规则的重复字符。</li>
+</ul>
 
       
     </div>
@@ -463,6 +491,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/07/JS中的数学/" rel="prev" title="JS中的数学">
+                JS中的数学 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -534,7 +566,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
