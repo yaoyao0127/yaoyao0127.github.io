@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="函数内返回一个对象的方法 12345678function()&amp;#123;    ...    return&amp;#123;        cancel:function()&amp;#123;            clearInterval(timer);        &amp;#125;    &amp;#125;&amp;#125;  设置计时器的两种方法 123456//setIntervalvar timer = s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-06T08:22:08.000Z">
+<meta property="og:updated_time" content="2018-07-11T13:14:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷题遇到的知识点记录">
 <meta name="twitter:description" content="函数内返回一个对象的方法 12345678function()&amp;#123;    ...    return&amp;#123;        cancel:function()&amp;#123;            clearInterval(timer);        &amp;#125;    &amp;#125;&amp;#125;  设置计时器的两种方法 123456//setIntervalvar timer = s">
@@ -348,6 +348,15 @@
 </li>
 </ul>
 <ol start="4">
+<li>parseFloat()</li>
+</ol>
+<ul>
+<li>第一个小数点有效，之后的小数点及后面的数字会被忽略。</li>
+<li>只解析十进制值，所以始终忽略前导零，并且也没有用第二个参数指定解析进制规则的做法。</li>
+<li>小数点后都为0的整数会被转换成整型数字。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parseFloat(&quot;2.00&quot;)</span><br><span class="line">2</span><br><span class="line">parseFloat(&quot;2.01.09&quot;)</span><br><span class="line">2.01</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="4">
 <li>函数传参的三种方法(这里的obj就是函数的执行上下文，就是调用函数的对象，也就是函数内部this的指向)</li>
 </ol>
 <ul>
@@ -405,6 +414,12 @@
 <ul>
 <li>num.toString()</li>
 <li>num=””+num</li>
+</ul>
+<ol start="11">
+<li>字符串专属组</li>
+</ol>
+<ul>
+<li>str.split”(分隔符)”</li>
 </ul>
 <ol start="11">
 <li>原型链问题</li>
@@ -492,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/07/JS中的数学/" rel="prev" title="JS中的数学">
-                JS中的数学 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/09/flew弹性布局盒子模型/" rel="prev" title="flex弹性布局盒子模型">
+                flex弹性布局盒子模型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

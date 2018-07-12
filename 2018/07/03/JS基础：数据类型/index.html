@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="JS共有5种基本数据类型：Number、String、Boolean、Null、Undefined和1种复杂数据类型Object，所有的值最终将是这6种数据类型之一。使用typeof操作符可以检查任何值的数据类型。 12typeof([1,2,3]) //&amp;quot;object&amp;quot;typeof(&amp;apos;1,2,3&amp;apos;) //&amp;quot;string&amp;quot;  Undef">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-04T07:42:57.000Z">
+<meta property="og:updated_time" content="2018-07-12T01:52:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS基础：数据类型">
 <meta name="twitter:description" content="JS共有5种基本数据类型：Number、String、Boolean、Null、Undefined和1种复杂数据类型Object，所有的值最终将是这6种数据类型之一。使用typeof操作符可以检查任何值的数据类型。 12typeof([1,2,3]) //&amp;quot;object&amp;quot;typeof(&amp;apos;1,2,3&amp;apos;) //&amp;quot;string&amp;quot;  Undef">
@@ -370,6 +370,21 @@
 <li>首位为0x，后面的字符属于16进制数字，按照16进制解析。</li>
 <li>浮点数：小数点右面必须至少有一位数。</li>
 <li>保存浮点数的内存空间是整数的两倍，所以ECMAscript会不失时机地将浮点数转换为整数。</li>
+</ul>
+<ol start="6">
+<li>String</li>
+</ol>
+<ul>
+<li>字符串创建之后的值无法改变，只能销毁以后用另一个包含新值得字符串填充该变量。</li>
+<li>数值、布尔值、对象和字符串都有toString()方法，null和undefined没有，该方法可以传递一个指定进制的参数。</li>
+<li>所有的数据类型都可以用转型函数String()转换为字符串。</li>
+<li>“+”可以拼接字符串</li>
+</ul>
+<ol start="7">
+<li>Object</li>
+</ol>
+<ul>
+<li>每个Object实例都具有的属性和方法：<br>(1)constructor：保存着创建当前对象的函数<br>(2)hasOwnProperty(propertyName)：检查给定的属性是否属于当前对象实例<br>(3)isPrototypeOf(object)：检查传入的对象是否是当前对象的原型<br>(4)propertyIsEnumerable(propertyName)：检查该属性是否可以用for-in枚举<br>(5)toString()：返回字符串表示<br>(6)toLocaleString()：返回字符串表示，与字符串环境的地区对应<br>(7)valueOf()：返回字符串、数值或布尔值表示</li>
 </ul>
 
       
