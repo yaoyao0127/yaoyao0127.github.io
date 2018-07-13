@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="常见的数学函数   Math.abs(n):求n的绝对值 Math.sqrt(n):求n的二次根式 n.toFixed(m):求n保留m位小数后的结果   递归：当一个函数被递归调用时，在递归没有完成之前，函数的计算结果暂时被挂起，知道递归调用结束。 12345678function fac(n)&amp;#123;    if (n==1)&amp;#123;        return n;    &amp;#12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-12T07:00:38.000Z">
+<meta property="og:updated_time" content="2018-07-13T04:48:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记--数据结构与算法JS描述">
 <meta name="twitter:description" content="常见的数学函数   Math.abs(n):求n的绝对值 Math.sqrt(n):求n的二次根式 n.toFixed(m):求n保留m位小数后的结果   递归：当一个函数被递归调用时，在递归没有完成之前，函数的计算结果暂时被挂起，知道递归调用结束。 12345678function fac(n)&amp;#123;    if (n==1)&amp;#123;        return n;    &amp;#12">
@@ -346,7 +346,7 @@
 <li><p>面向对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function checking(amount)&#123;</span><br><span class="line">    this.balance = amount;</span><br><span class="line">    this.deposit = deposit;</span><br><span class="line">    this.withdraw = withdraw;</span><br><span class="line">    this.toString = toString;</span><br><span class="line">&#125;</span><br><span class="line">function deposit(amount)&#123;</span><br><span class="line">    this.balance += amount;</span><br><span class="line">&#125;</span><br><span class="line">function withdraw(amount)&#123;</span><br><span class="line">    if(amount &lt;= this.banlance)&#123;</span><br><span class="line">        this.balance -= amount;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数组</p>
+<li><p>数组 Array</p>
 </li>
 </ol>
 <ul>
@@ -390,8 +390,19 @@
 </li>
 </ul>
 <ol start="5">
-<li>二维数组：JS只支持一维数组，可以通过将数组中的元素变成数组来创建二维数组。</li>
+<li>二维数组：JS只支持一维数组，可以通过将数组中的元素变成数组来创建二维数组。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//创建二维数组</span><br><span class="line">var twod = [];</span><br><span class="line">var rows = 5;</span><br><span class="line">for(var i=0;i&lt;rows;i++)&#123;</span><br><span class="line">    twod[i]=[];</span><br><span class="line">&#125; //[ [], [], [], [], [] ]</span><br><span class="line">//Array.matrix方法</span><br><span class="line">Array.matrix=function(numrows,numcols,initial)&#123;</span><br><span class="line">var arr=[];</span><br><span class="line">for(var i=0;i&lt;numrows;i++)&#123;</span><br><span class="line">    var columns=[];</span><br><span class="line">    for(var j=0;j&lt;numcols;j++)&#123;</span><br><span class="line">        columns[j]=initial;</span><br><span class="line">    &#125;</span><br><span class="line">arr[i]=columns;</span><br><span class="line">&#125;</span><br><span class="line">return arr;</span><br><span class="line">&#125;</span><br><span class="line">var nums = Array.matrix(5,5,0);</span><br><span class="line">print(nums);</span><br><span class="line">print(nums[1][1]);</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<ul>
+<li>处理二维数组：按行访问或者按列访问</li>
+</ul>
+<ol start="6">
+<li>对象数组</li>
+<li>列表 List</li>
+</ol>
+<ul>
+<li>实现列表类<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function()</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
