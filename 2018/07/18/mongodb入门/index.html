@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="sudo  mongod  启动服务器 sudo mongo   启动客户端 BSON：就是二进制的JSON，是一种类json的一种二进制形式的存储格式,简称Binary JSON。 一些注意   文档中的键/值对是有序的。 文档中的值不仅可以是在双引号里面的字符串，还可以是其他几种数据类型（甚至可以是整个嵌入的文档)。 MongoDB区分类型和大小写。 MongoDB的文档不能有重复的键。 文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-18T03:32:17.000Z">
+<meta property="og:updated_time" content="2018-07-20T05:17:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongodb入门">
 <meta name="twitter:description" content="sudo  mongod  启动服务器 sudo mongo   启动客户端 BSON：就是二进制的JSON，是一种类json的一种二进制形式的存储格式,简称Binary JSON。 一些注意   文档中的键/值对是有序的。 文档中的值不仅可以是在双引号里面的字符串，还可以是其他几种数据类型（甚至可以是整个嵌入的文档)。 MongoDB区分类型和大小写。 MongoDB的文档不能有重复的键。 文">
@@ -351,6 +351,13 @@
 <li>创建数据库：use databasename</li>
 <li>插入数据：db.databasename.insert(“键”：“值”})</li>
 <li>删除数据库：通过use databasename切换到要删除的数据库下，使用db.dropDatabase()来删除该数据库</li>
+<li>show dbs：可查看所有的数据库</li>
+<li>use register：可转到名为register的数据库</li>
+<li>db.users.getIndexes()：可查看当前数据库中的数据结构</li>
+<li>db.users.dropIndex({“username”:1})：可删除当前数据库中数据结构的指定键</li>
+<li>db.user.remove({})：可清空当前数据库</li>
+<li>db.users.find()：可查看当前数据库的所有数据</li>
+<li>db.users.dropIndex({“username”:1})：删除重复的key</li>
 </ul>
 
       
@@ -484,7 +491,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -495,7 +502,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

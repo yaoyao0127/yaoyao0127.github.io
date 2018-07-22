@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="异步操作的常见语法   事件监听与响应 12345document.getElementById(&apos;start&apos;).addEventListener(&apos;click&apos;,start,false)function start()&amp;#123;//响应事件，进行相应操作&amp;#125;$(&apos;#start&apos;).on(&apos;click&apos;,start);  回调。如常见的ajax。 12345$.ajax(&apos;http:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="promise解读">
+<meta property="og:url" content="http://yaoyao0127.github.io/2018/07/22/promise解读/index.html">
+<meta property="og:site_name" content="爱笑的yaoyao">
+<meta property="og:description" content="异步操作的常见语法   事件监听与响应 12345document.getElementById(&apos;start&apos;).addEventListener(&apos;click&apos;,start,false)function start()&amp;#123;//响应事件，进行相应操作&amp;#125;$(&apos;#start&apos;).on(&apos;click&apos;,start);  回调。如常见的ajax。 12345$.ajax(&apos;http:">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9796312-80641a6a4cffb3e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-22T08:22:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="promise解读">
+<meta name="twitter:description" content="异步操作的常见语法   事件监听与响应 12345document.getElementById(&apos;start&apos;).addEventListener(&apos;click&apos;,start,false)function start()&amp;#123;//响应事件，进行相应操作&amp;#125;$(&apos;#start&apos;).on(&apos;click&apos;,start);  回调。如常见的ajax。 12345$.ajax(&apos;http:">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9796312-80641a6a4cffb3e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yaoyao0127.github.io/2018/07/22/promise解读/"/>
+
+
+
+
+
+  <title>promise解读 | 爱笑的yaoyao</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/yaoyao0127"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">爱笑的yaoyao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yaoyao0127.github.io/2018/07/22/promise解读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱笑的yaoyao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">promise解读</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-22T16:20:38+08:00">
+                2018-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>异步操作的常见语法</li>
+</ol>
+<ul>
+<li><p>事件监听与响应</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'start'</span>).addEventListener(<span class="string">'click'</span>,start,<span class="literal">false</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//响应事件，进行相应操作</span></span><br><span class="line">&#125;</span><br><span class="line">$(<span class="string">'#start'</span>).on(<span class="string">'click'</span>,start);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回调。如常见的ajax。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(<span class="string">'http://baidu.com'</span>,&#123;</span><br><span class="line">    success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">   <span class="comment">//成功后的回调函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>浏览器中的异步操作和nodejs中的异步操作</li>
+</ol>
+<ul>
+<li>浏览器中的异步操作主要以事件为主，回调主要出现在ajax操作和file api中</li>
+<li>nodejs中对异步操作的依赖加剧，主打无阻塞高并发特性。大量操作依赖回调函数。</li>
+</ul>
+<ol start="3">
+<li>异步操作带来的问题<br>+回调地狱：多层回调嵌套起来导致代码难以调试和维护</li>
+</ol>
+<ul>
+<li>异步回调无法使用try catch来处理错误；+ 无法判断什么时候操作完成，只能定义外部全局变量，能被所有内部操作修改。</li>
+</ul>
+<ol start="4">
+<li>promise实例</li>
+</ol>
+<ul>
+<li>promise是一个代理对象，和原先要进行的操作没有关系</li>
+<li>promise通过引入一个回调，避免更多的回调</li>
+<li>promise的三种状态：pending初始状态、fulfilled操作成功、rejected操作失败 </li>
+<li>promise状态发生改变后就会触发.then()中的响应函数</li>
+<li>promise状态改变之后不会再发生改变</li>
+<li>每一个then都会返回一个新的promise对象</li>
+<li>promise实例一经创建，执行器立即执行<br><img src="https://upload-images.jianshu.io/upload_images/9796312-80641a6a4cffb3e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="promise队列.png"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line"><span class="comment">/*执行器executor*/</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//一段耗时很长的异步操作</span></span><br><span class="line">        resolve();<span class="comment">//数据处理完成</span></span><br><span class="line">        reject();<span class="comment">//数据处理出错</span></span><br><span class="line">    &#125;</span><br><span class="line">).then(<span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//成功，下一步</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>  <span class="title">B</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//失败，做相应处理</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="5">
+<li>.then</li>
+</ol>
+<ul>
+<li>.then()接受两个函数作为参数，分别代表fulfilled和rejected</li>
+<li>.then()返回一个新的promise实例，所以可以链式调用</li>
+<li>当前面的promise状态改变时，.then()根据其最终状态，选择特定的状态响应函数执行</li>
+<li>状态响应函数可以返回新的promise或者其他值</li>
+<li>.then()的嵌套：.then()里面还有.then()时，会等里面的promise执行完再执行外面的</li>
+</ul>
+<ol start="6">
+<li>promise.all()<br>将多个promise实例包装成一个promise，相当于数个promise的并集。所有promise执行完，这个大promise返回所有的子promise返回的数组成的数组；有promise执行失败，这个大promise返回第一个失败的promise返回的值。</li>
+<li><p>把异步操作包装成promise</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = popupManager.confirm(<span class="string">"您确定么？"</span>)</span><br><span class="line">confirm.promise</span><br><span class="line">  .then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//do confirm staff</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//do cancel staff</span></span><br><span class="line">  &#125;);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Confirm</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;</span><br><span class="line">    <span class="keyword">this</span>.promise = <span class="keyword">new</span>     <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.confirmButton.onclick = resolve;</span><br><span class="line">        <span class="keyword">this</span>.cancelButton.onclick = reject;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>jquery promise<br>ajax</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你愿意给我买糖糖吗</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wx.jpg" alt="yaoyao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/22/跨域解决方案总结/" rel="next" title="跨域解决方案总结">
+                <i class="fa fa-chevron-left"></i> 跨域解决方案总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/22/ES6之箭头函数/" rel="prev" title="ES6之箭头函数">
+                ES6之箭头函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/tx.jpg"
+                alt="yaoyao" />
+            
+              <p class="site-author-name" itemprop="name">yaoyao</p>
+              <p class="site-description motion-element" itemprop="description">不喜欢化妆的前端er不是好老师</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yaoyao0127" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yaoyao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

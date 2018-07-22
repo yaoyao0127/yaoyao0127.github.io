@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###居中相关  水平居中   如果width可以设为固定值，左右margin设为auto 如果width不可以设为固定值，则将其父元素设置为text-align为center，将该元素display设置为inline-block 如果是行内元素，直接设置其父元素text-align为center 父元素position设置为relative，float设置为left，left设置为50%；子元素">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html和css的一些小问题">
+<meta property="og:url" content="http://yaoyao0127.github.io/2018/07/20/html和css的一些问题/index.html">
+<meta property="og:site_name" content="爱笑的yaoyao">
+<meta property="og:description" content="###居中相关  水平居中   如果width可以设为固定值，左右margin设为auto 如果width不可以设为固定值，则将其父元素设置为text-align为center，将该元素display设置为inline-block 如果是行内元素，直接设置其父元素text-align为center 父元素position设置为relative，float设置为left，left设置为50%；子元素">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-20T05:30:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html和css的一些小问题">
+<meta name="twitter:description" content="###居中相关  水平居中   如果width可以设为固定值，左右margin设为auto 如果width不可以设为固定值，则将其父元素设置为text-align为center，将该元素display设置为inline-block 如果是行内元素，直接设置其父元素text-align为center 父元素position设置为relative，float设置为left，left设置为50%；子元素">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yaoyao0127.github.io/2018/07/20/html和css的一些问题/"/>
+
+
+
+
+
+  <title>html和css的一些小问题 | 爱笑的yaoyao</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/yaoyao0127"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">爱笑的yaoyao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yaoyao0127.github.io/2018/07/20/html和css的一些问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱笑的yaoyao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">html和css的一些小问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T13:26:28+08:00">
+                2018-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html-css/" itemprop="url" rel="index">
+                    <span itemprop="name">html+css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###居中相关</p>
+<ol>
+<li>水平居中</li>
+</ol>
+<ul>
+<li>如果width可以设为固定值，左右margin设为auto</li>
+<li>如果width不可以设为固定值，则将其父元素设置为text-align为center，将该元素display设置为inline-block</li>
+<li>如果是行内元素，直接设置其父元素text-align为center</li>
+<li>父元素position设置为relative，float设置为left，left设置为50%；子元素position设置为relative，float设置为left，left设置为-50%。</li>
+</ul>
+<ol start="2">
+<li>垂直居中</li>
+</ol>
+<ul>
+<li>块级元素垂直居中，通过padding-top和padding-bottom相等来实现</li>
+<li>父元素的高度为定值的单行文本：将父元素高度height和line-height设置为相同</li>
+<li>父元素的高度为定值的多行文本：将父元素display设置为table，table子元素display设置为table-cell vertical-align设置为middle，子元素display设置为inline-block</li>
+<li>任意元素垂直居中：父元素position设置为relative，子元素position设置为absolute，transform设置为translateY（50%）</li>
+</ul>
+<hr>
+<p>###position相关</p>
+<ol>
+<li>position:static<br>position属性的默认值，默认块级元素和行级元素按照各自的特性进行显示。</li>
+<li>position:relative<br>相对定位，设置好该属性后，元素会根据margin和padding相对于自己本身的位置进行偏移，但是它原本的位置依然保留，不会被其他元素占用。</li>
+<li>position:absolute<br>绝对定位，设置好该属性后，元素会脱离文档流，原本的位置不再占用，会被其他元素占用。而且无论元素是行内元素还是块级元素，都会生成一个块级框。如果该元素是行内元素，设置了绝对定位以后就可以设置width和height属性了。<br>绝对定位的元素一般会相对于第一个非static属性的父元素的位置进行定位。</li>
+<li>position: fixed<br>fixed设置好以后，类似于absolute，但是他不是相对于不确定的父元素进行偏移，而是相对于浏览器窗口进行偏移。通常可用于将导航固定在屏幕顶部的情况。</li>
+<li>z-index失效的几种情况</li>
+</ol>
+<ul>
+<li>父元素position为relative</li>
+<li>本身的position属性为static</li>
+<li>本身有float属性<br>text-align只对子元素起作用</li>
+</ul>
+<hr>
+<p>###display相关<br>关于display这个属性，用过很多次，但是还是云里雾里的，每次都是整成绝对定位来达到目标。今天来认真总结一下：</p>
+<ol>
+<li>display:inline<br>元素变成彻底的行内元素，行内元素嘛，自然是没有height和width这些属性的，所以设置也不管用了，只能靠此时元素的内容撑开。同时，padding和margin的左右属性可以产生效果，但是上下属性却会失效。</li>
+<li>display:block<br>元素变成彻底的块级元素，独自占一行，不设置width的话，会默认填满父级元素的宽度。可以自由改变width和height，margin和padding值都正常起效果。</li>
+<li>display:inline-block<br>元素变成不独占一行的块级元素。虽然不独占一行，但是不设置width的话，会默认填满父级元素的宽度。可以自由改变width和height，margin和padding值都正常起效果。</li>
+</ol>
+<ul>
+<li>设置inline-block，元素不会脱离文本流</li>
+<li>对于横向排列来说，用inline-block来布局更加清晰</li>
+<li>对于需要文字环绕的时候，适合用float</li>
+</ul>
+<hr>
+<p>###css错题本</p>
+<ol>
+<li>选择器的优先级<br>内联样式 &gt; id 选择器 &gt; 类选择器 = 属性选择器 = 伪类选择器 &gt; 标签选择器 = 伪元素选择器</li>
+<li>可继承的样式<br>颜色，文字，字体间距行高对齐方式，和列表的样式</li>
+<li>外边距折叠<br>上下两个盒子，上面的设置了margin-bottom，下面的设置了margin-top，此时他们之间的间距并不是两个margin的值相加，而是其中比较大的那个值。</li>
+<li>BFC就是用来格式化block块级盒子的，满足下列条件之一的盒子就会变成BFC<br>float的值不为none；<br>overflow的值不为visible；<br>display的值为inline-block、table-cell、table-caption；<br>position的值为absolute或fixed；</li>
+<li>css选择器中，逗号是分组选择器，表示并列；空格是上下文选择器，表示从属；大于号是子元素选择器，表示只选择第一个符合要求的对象；加号表示相邻兄弟选择器，表示选择紧挨着兄元素元素1的弟元素元素2，并且元素1、2有着相同的父元素，是兄弟关系；[]是属性选择器，选择具有该属性的所有元素。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你愿意给我买糖糖吗</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wx.jpg" alt="yaoyao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/20/python中调用cv2/" rel="next" title="python中调用cv2">
+                <i class="fa fa-chevron-left"></i> python中调用cv2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/20/express如何用nodemon设置热启动/" rel="prev" title="express如何用nodemon设置热启动">
+                express如何用nodemon设置热启动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/tx.jpg"
+                alt="yaoyao" />
+            
+              <p class="site-author-name" itemprop="name">yaoyao</p>
+              <p class="site-description motion-element" itemprop="description">不喜欢化妆的前端er不是好老师</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yaoyao0127" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yaoyao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
