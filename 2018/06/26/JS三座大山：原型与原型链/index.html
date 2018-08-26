@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="什么是原型？JS是一门基于原型的语言，所有的对象都有原型。原型是对象的一个隐藏属性，可以用prototype（正式）和proto(非正式，在es6中成为正式）两种方法来引用。 原型链：实现继承的方式。寻找一个对象的原型会形成一条原型链。 访问对象的全部属性：Object.keys(对象名)12345678function Person()&amp;#123;this.name=&amp;apos;mary&amp;ap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-27T08:29:48.000Z">
+<meta property="og:updated_time" content="2018-07-29T14:39:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS三座大山：原型与原型链">
 <meta name="twitter:description" content="什么是原型？JS是一门基于原型的语言，所有的对象都有原型。原型是对象的一个隐藏属性，可以用prototype（正式）和proto(非正式，在es6中成为正式）两种方法来引用。 原型链：实现继承的方式。寻找一个对象的原型会形成一条原型链。 访问对象的全部属性：Object.keys(对象名)12345678function Person()&amp;#123;this.name=&amp;apos;mary&amp;ap">
@@ -337,6 +337,31 @@
 <li>访问对象的全部属性：Object.keys(对象名)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Person()&#123;</span><br><span class="line">this.name=&apos;mary&apos;;</span><br><span class="line">this.age=&apos;20&apos;;</span><br><span class="line">this.color=&apos;yellow&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var me=new Person;</span><br><span class="line">Object.keys(me);</span><br><span class="line">//[&quot;name&quot;, &quot;age&quot;, &quot;color&quot;]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<hr>
+<p>继承</p>
+<ol>
+<li>prototype是什么？是为了使所有的实例对象能有一些共享的属性，从而节约资源。</li>
+</ol>
+<ul>
+<li>每一个构造函数都有一个属性叫做prototype，里面放着希望被所有的实例对象共享的一些属性和方法，不需要共享的属性和方法直接放在构造函数里面。因此，实例对象一旦创建好以后，就会自动引用prototype里面存放的共享的属性和方法。所以每一个实例对象都拥有两种属性和方法，一种是本地的，一种是引用自prototype的。</li>
+</ul>
+<ol start="2">
+<li><em>proto</em>是什么？</li>
+</ol>
+<ul>
+<li>每一个对象都有一个<em>proto</em>属性，指向它的构造函数的prototype属性。同一个构造函数生成的每一个实例对象的<em>proto</em>属性都指向该构造函数的prototype属性，所以外界看起来像是继承自prototype，prototype像是实例对象的原型。 </li>
+<li>构造函数：构造函数的prototype的<em>proto</em>属性指向Object.prototype,Object.prototype的<em>proto</em>属性最终指向null。</li>
+<li>实例对象：实例对象的<em>proto</em>属性指向其构造函数的prototype属性，constructor属性指向其构造函数。</li>
+<li>每一个构造函数的prototype属性里面都默认有一个constructor属性，指向这个构造函数本身。即每一个prototype对象都有一个constructor属性，指向它的构造函数。所以可以通过修改该属性来修改某原型对象的构造函数，不过这种做法会造成原型链紊乱。</li>
+</ul>
+<ol start="3">
+<li>instanceof isPrototypeOf hasOwnProperty()</li>
+</ol>
+<ul>
+<li>instanceof: cat1 instanceof Cat //返回true 判断某实例和某构造函数之间的关系</li>
+<li>isPrototypeOf: Cat.prototype.isPrototypeOf(cat1) //返回true 判断某prototype对象和某实例之间的关系</li>
+<li>hasOwnProperty(): cat1.hasOwnProperty(“name”) //返回true 判断该实例对象的某个属性是继承来的还是本地的</li>
+</ul>
 
       
     </div>
@@ -469,7 +494,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -480,7 +505,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

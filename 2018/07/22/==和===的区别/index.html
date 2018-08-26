@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="先说 ===，这个比较简单。下面的规则用来判断两个值是否===相等：1、如果类型不同，就[不相等]2、如果两个都是数值，并且是同一个值，那么[相等]。3、如果两个都是字符串，每个位置的字符都一样，那么[相等]；否则[不相等]。4、如果两个值都是true，或者都是false，那么[相等]。5、如果两个值都引用同一个对象或函数，那么[相等]；否则[不相等]。6、如果两个值都是null，或者都是unde">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T08:31:20.000Z">
+<meta property="og:updated_time" content="2018-08-06T14:25:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="==和===的区别">
 <meta name="twitter:description" content="先说 ===，这个比较简单。下面的规则用来判断两个值是否===相等：1、如果类型不同，就[不相等]2、如果两个都是数值，并且是同一个值，那么[相等]。3、如果两个都是字符串，每个位置的字符都一样，那么[相等]；否则[不相等]。4、如果两个值都是true，或者都是false，那么[相等]。5、如果两个值都引用同一个对象或函数，那么[相等]；否则[不相等]。6、如果两个值都是null，或者都是unde">
@@ -331,7 +331,8 @@
       
 
       
-        <p>先说 ===，这个比较简单。<br>下面的规则用来判断两个值是否===相等：<br>1、如果类型不同，就[不相等]<br>2、如果两个都是数值，并且是同一个值，那么[相等]。<br>3、如果两个都是字符串，每个位置的字符都一样，那么[相等]；否则[不相等]。<br>4、如果两个值都是true，或者都是false，那么[相等]。<br>5、如果两个值都引用同一个对象或函数，那么[相等]；否则[不相等]。<br>6、如果两个值都是null，或者都是undefined，那么[相等]。<br>再说 ==，根据以下规则：<br>1、如果两个值类型相同，进行 === 比较。<br>2、如果两个值类型不同，他们可能相等。根据下面规则进行类型转换再比较：<br>a、如果一个是null、一个是undefined，那么[相等]。<br>b、如果一个是字符串，一个是数值，把字符串转换成数值再进行比较。<br>c、如果任一值是 true，把它转换成 1 再比较；如果任一值是 false，把它转换成 0 再比较。<br> d、任何其他组合，都[不相等]。</p>
+        <p>先说 ===，这个比较简单。<br>下面的规则用来判断两个值是否===相等：<br>1、如果类型不同，就[不相等]<br>2、如果两个都是数值，并且是同一个值，那么[相等]。<br>3、如果两个都是字符串，每个位置的字符都一样，那么[相等]；否则[不相等]。<br>4、如果两个值都是true，或者都是false，那么[相等]。<br>5、如果两个值都引用同一个对象或函数，那么[相等]；否则[不相等]。<br>6、如果两个值都是null，或者都是undefined，那么[相等]。<br>再说 ==，根据以下规则：<br>1、如果两个值类型相同，进行 === 比较。<br>2、如果两个值类型不同，他们可能相等。根据下面规则进行类型转换再比较：<br>a、如果一个是null、一个是undefined，那么[相等]。<br>b、如果一个是字符串，一个是数值，把字符串转换成数值再进行比较。<br>c、如果任一值是 true，把它转换成 1 再比较；如果任一值是 false，把它转换成 0 再比较。</p>
+<h2 id="d、任何其他组合，都-不相等-。"><a href="#d、任何其他组合，都-不相等-。" class="headerlink" title=" d、任何其他组合，都[不相等]。"></a> d、任何其他组合，都[不相等]。</h2><p>今天看了js高教，才彻底明白了==和===的由来。<br>原来是早年间在比较对象是否相等的时候，==会先将对象强制转换成相似类型，再进行比较，受到了一定程度的质疑，因此又引入了===这一操作符。==和!==叫做相等和不相等，先转换再进行比较；而===和!===叫做全等和不全等，只进行比较，不转换。</p>
 
       
     </div>
@@ -390,6 +391,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/08/26/项目小结/" rel="prev" title="项目小结">
+                项目小结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -440,8 +445,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -460,7 +474,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -471,7 +485,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -506,6 +520,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#d、任何其他组合，都-不相等-。"><span class="nav-number">1.</span> <span class="nav-text"> d、任何其他组合，都[不相等]。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
