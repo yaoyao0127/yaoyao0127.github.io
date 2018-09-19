@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="同源策略同源策略是一种约定，是浏览器最核心最基本的安全功能，提升了web前端的安全性，同时也限制了灵活性。同协议、同端口、同域名看做同一个域，一个域内的脚本仅仅具有本域内的权限，只能读写本域内的资源，无法访问其它域内的资源，这种安全限制叫做同域策略。 跨域从一个域内的网页去请求另一个域内的资源，实现不同域之间的数据交互和通信。以下几种情况都属于跨域。   域名完全不同 主域相同，子域不同 域名和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T08:19:46.000Z">
+<meta property="og:updated_time" content="2018-09-19T12:52:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域解决方案总结">
 <meta name="twitter:description" content="同源策略同源策略是一种约定，是浏览器最核心最基本的安全功能，提升了web前端的安全性，同时也限制了灵活性。同协议、同端口、同域名看做同一个域，一个域内的脚本仅仅具有本域内的权限，只能读写本域内的资源，无法访问其它域内的资源，这种安全限制叫做同域策略。 跨域从一个域内的网页去请求另一个域内的资源，实现不同域之间的数据交互和通信。以下几种情况都属于跨域。   域名完全不同 主域相同，子域不同 域名和">
@@ -343,11 +343,18 @@
 <li>域名相同，端口不同</li>
 </ul>
 <ol start="3">
-<li>跨域方案1：jsonp<br>jsonp是应用json的一种方法，是开发人员搞出来的一种非官方跨域方案。在js中，直接用XMLHttpRequest请求不同域上的数据是不可以的，而在html中，可以通过link属性(css)、href属性(a标签)、src(img标签、script标签)来请求不同域内的资源，即在页面上引入不同域的js脚本文件却是可以的，jsonp正好利用了这一特性。<br>jsonp由两部分组成，回调函数和数据。<br>简单来说，就是把远程服务器的数据装进js文件中调用到客户端再解析出来使用。</li>
+<li>跨域方案1：jsonp(可以在古老的浏览器中运行，只支持get请求。)<br>jsonp是应用json的一种方法，是开发人员搞出来的一种非官方跨域方案。在js中，直接用XMLHttpRequest请求不同域上的数据是不可以的，而在html中，可以通过link属性(css)、href属性(a标签)、src(img标签、script标签)来请求不同域内的资源，即在页面上引入不同域的js脚本文件却是可以的，jsonp正好利用了这一特性。<br>jsonp由两部分组成，回调函数和数据。<br>简单来说，就是把远程服务器的数据装进js文件中调用到客户端再解析出来使用。</li>
 </ol>
 <ul>
 <li>回调函数：接收到响应时应该在页面调用的函数。</li>
-<li>数据：传入回调函数中的json数据。<br>可以在古老的浏览器中运行，只支持get请求。</li>
+<li>数据：传入回调函数中的json数据。</li>
+<li>实现方法：<ul>
+<li>在script标签中加入回调函数<script src="http://json.js?callback=xxx"></li>
+<li>callback定义了一个函数名，远程服务端通过调用该函数并且传入参数来实现数据的传递，将fn(response)传递给客户端。</li>
+<li>客户端接收到返回的js脚本后，开始解析和执行fn(response)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function jsonp(req)&#123;</span><br><span class="line">    var script = document.createElement(&apos;script&apos;);</span><br><span class="line">    var url = req.url+&apos;?callback=&apos;+req.callback.name;</span><br><span class="line">    script.src = url;</span><br><span class="line">    document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line">//前端</span><br><span class="line">function hello(res)&#123;</span><br><span class="line">    alert(&apos;hello&apos;+res.data);</span><br><span class="line">&#125;</span><br><span class="line">jsonp(&#123;</span><br><span class="line">    url:&apos;&apos;,</span><br><span class="line">    callback:hello</span><br><span class="line">&#125;)</span><br><span class="line">//服务端</span><br><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var urllib = require(&apos;url&apos;);</span><br><span class="line">var port = 8080;</span><br><span class="line">var data = &#123;&apos;data&apos;:&apos;world&apos;&#125;;</span><br><span class="line">http.createServer(function(req,res)&#123;</span><br><span class="line">    var params = urllib.parse(req.url,true);</span><br><span class="line">    if(params.query.callback)&#123;</span><br><span class="line">    var str = params.query.callback+&apos;(&apos;+JSON.stringfy(data)+&apos;)&apos;;</span><br><span class="line">    res.end(str);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">    res.end();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).listen(port,function()&#123;</span><br><span class="line">    console.log(&apos;jsonp server is on&apos;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
 </ul>
 <ol start="4">
 <li>跨域方案2：跨域资源共享CORS<br>CORS是一份浏览器技术规范。CORS采用新的“origin”请求头和新的Access-Control-Allow-Origin响应头来扩展HTTP，允许服务器设置头信息来列出允许访问的源，或者用通配符来匹配所有的源允许所有的地址请求文件。</li>
@@ -355,7 +362,7 @@
 <li>websocket协议跨域<br>WebSocket protocol 是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很棒的实现</li>
 <li>nginx代理跨域</li>
 </ol>
-
+</script></li></ul></li></ul>
       
     </div>
     
@@ -487,7 +494,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
