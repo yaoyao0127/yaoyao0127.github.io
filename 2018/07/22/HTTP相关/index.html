@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="1、什么是HTTP？HTTP（HyperText Transfer Protocol）超文本传输协议。所有的WWW文件必须遵守这个协议。HTTP是为发布和接收html页面而生的。但是它是明文方式发送内容的，不提供任何方式的数据加密，所以不适合传输敏感信息。2、什么是HTTPS？HTTPS安全套接字层超文本传输协议。为了数据传输的安全性，在HTTP的基础上加入了SSL协议，依靠证书来验证服务器的身份">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T08:18:54.000Z">
+<meta property="og:updated_time" content="2018-09-24T04:49:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP相关">
 <meta name="twitter:description" content="1、什么是HTTP？HTTP（HyperText Transfer Protocol）超文本传输协议。所有的WWW文件必须遵守这个协议。HTTP是为发布和接收html页面而生的。但是它是明文方式发送内容的，不提供任何方式的数据加密，所以不适合传输敏感信息。2、什么是HTTPS？HTTPS安全套接字层超文本传输协议。为了数据传输的安全性，在HTTP的基础上加入了SSL协议，依靠证书来验证服务器的身份">
@@ -332,6 +332,20 @@
 
       
         <p>1、什么是HTTP？<br>HTTP（HyperText Transfer Protocol）超文本传输协议。所有的WWW文件必须遵守这个协议。HTTP是为发布和接收html页面而生的。但是它是明文方式发送内容的，不提供任何方式的数据加密，所以不适合传输敏感信息。<br>2、什么是HTTPS？<br>HTTPS安全套接字层超文本传输协议。为了数据传输的安全性，在HTTP的基础上加入了SSL协议，依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。简单来说就是HTTP的安全版。<br>3、什么是SSL协议？<br>SSL（Secure Sockets Layer）安全套接层协议层。基于web应用的安全协议，指定了一种在应用程序协议（如HTTP、Telenet、NMTP、FTP）和TCP/IP协议之间提供数据安全性分层的机制，为TCP/IP连接提供数据加密、服务器认证、消息完整性以及可选的客户端认证。<br>4、HTTP状态码<br>1<strong>（信息类）：接收到请求并继续处理<br>2</strong>（响应成功类）：动作被成功接收理解和接受<br>200：成功接收动作并且发回资源<br>3<strong>（重定向类）：为了完成指定的动作，必须接受进一步处理<br>4</strong>（客户端错误类）：请求包含错误语法或不能被正确执行<br>400：请求有语法错误，服务器不能理解<br>401：请求未被授权<br>403：服务器收到了请求，但是禁止访问<br>404：可连接服务器，但是请求资源不存在<br>5**（服务端错误类）：服务器不能正确执行一个正确的请求<br>500：服务器错误</p>
+<ol start="5">
+<li>从输入 URL 到页面加载全过程</li>
+</ol>
+<ul>
+<li>首先做 DNS 查询，如果这一步做了智能 DNS 解析的话，会提供访问速度最快的 IP 地址回来</li>
+<li>接下来是 TCP 握手，应用层会下发数据给传输层，这里 TCP 协议会指明两端的端口号，然后下发给网络层。网络层中的 IP 协议会确定 IP 地址，并且指示了数据传输中如何跳转路由器。然后包会再被封装到数据链路层的数据帧结构中，最后就是物理层面的传输了</li>
+<li>TCP 握手结束后会进行 TLS 握手，然后就开始正式的传输数据</li>
+<li>数据在进入服务端之前，可能还会先经过负责负载均衡的服务器，它的作用就是将请求合理的分发到多台服务器上，这时假设服务端会响应一个 HTML 文件</li>
+<li>首先浏览器会判断状态码是什么，如果是 200 那就继续解析，如果 400 或 500 的话就会报错，如果 300 的话会进行重定向，这里会有个重定向计数器，避免过多次的重定向，超过次数也会报错</li>
+<li>浏览器开始解析文件，如果是 gzip 格式的话会先解压一下，然后通过文件的编码格式知道该如何去解码文件</li>
+<li>文件解码成功后会正式开始渲染流程，先会根据 HTML 构建 DOM 树，有 CSS 的话会去构建 CSSOM 树。如果遇到 script 标签的话，会判断是否存在 async 或者 defer ，前者会并行进行下载并执行 JS，后者会先下载文件，然后等待 HTML 解析完成后顺序执行，如果以上都没有，就会阻塞住渲染流程直到 JS 执行完毕。遇到文件下载的会去下载文件，这里如果使用 HTTP 2.0 协议的话会极大的提高多图的下载效率。</li>
+<li>初始的 HTML 被完全加载和解析后会触发 DOMContentLoaded 事件<br>CSSOM 树和 DOM 树构建完成后会开始生成 Render 树，这一步就是确定页面元素的布局、样式等等诸多方面的东西</li>
+<li>在生成 Render 树的过程中，浏览器就开始调用 GPU 绘制，合成图层，将内容显示在屏幕上了</li>
+</ul>
 
       
     </div>
@@ -464,7 +478,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="不喜欢化妆的前端er不是好老师">
+<meta name="description" content="JS是一门非阻塞单线程语言，因为在最初js就是为了和浏览器交互而诞生的，这种使命注定它必须是一门单线程的语言，因为多线程会导致一个线程正在新增节点，而另一个线程却在删除节点，就会在处理DOM时发生问题。 浏览器中的EventLoop   JS在执行的过程中会产生执行环境，这些执行环境会被按照执行顺序加入执行栈中，如果遇到异步代码，就会被挂起并加入到Task队列中，一旦执行栈为空，EventLoo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS三座大山：异步与单线程">
 <meta property="og:url" content="http://yaoyao0127.github.io/2018/06/26/JS三座大山：异步与单线程/index.html">
 <meta property="og:site_name" content="爱笑的yaoyao">
-<meta property="og:description" content="不喜欢化妆的前端er不是好老师">
+<meta property="og:description" content="JS是一门非阻塞单线程语言，因为在最初js就是为了和浏览器交互而诞生的，这种使命注定它必须是一门单线程的语言，因为多线程会导致一个线程正在新增节点，而另一个线程却在删除节点，就会在处理DOM时发生问题。 浏览器中的EventLoop   JS在执行的过程中会产生执行环境，这些执行环境会被按照执行顺序加入执行栈中，如果遇到异步代码，就会被挂起并加入到Task队列中，一旦执行栈为空，EventLoo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-27T15:11:21.000Z">
+<meta property="og:updated_time" content="2018-09-23T08:17:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS三座大山：异步与单线程">
-<meta name="twitter:description" content="不喜欢化妆的前端er不是好老师">
+<meta name="twitter:description" content="JS是一门非阻塞单线程语言，因为在最初js就是为了和浏览器交互而诞生的，这种使命注定它必须是一门单线程的语言，因为多线程会导致一个线程正在新增节点，而另一个线程却在删除节点，就会在处理DOM时发生问题。 浏览器中的EventLoop   JS在执行的过程中会产生执行环境，这些执行环境会被按照执行顺序加入执行栈中，如果遇到异步代码，就会被挂起并加入到Task队列中，一旦执行栈为空，EventLoo">
 
 
 
@@ -331,7 +331,29 @@
       
 
       
-        
+        <ol>
+<li>JS是一门非阻塞单线程语言，因为在最初js就是为了和浏览器交互而诞生的，这种使命注定它必须是一门单线程的语言，因为多线程会导致一个线程正在新增节点，而另一个线程却在删除节点，就会在处理DOM时发生问题。</li>
+<li>浏览器中的EventLoop</li>
+</ol>
+<ul>
+<li>JS在执行的过程中会产生执行环境，这些执行环境会被按照执行顺序加入执行栈中，如果遇到异步代码，就会被挂起并加入到Task队列中，一旦执行栈为空，EventLoop就会从Task队列中拿出需要执行的代码并放入执行栈中执行。</li>
+<li>不同的任务源会被分配到不同的Task队列中，任务源可以分为微任务microtask和宏任务macrotask。在ES6中，microtask称为jobs，macrotask称为task。</li>
+<li>微任务：process.nextTick， promise， Object.observe， MutationObserver</li>
+<li>宏任务：script， setTimeOut， setInterval， setImmediate， I/O， UI rendering</li>
+<li>微任务和宏任务的执行顺序：浏览器会先执行一个宏任务，接下来如果有异步代码就执行微任务</li>
+<li>正确的EventLoop顺序<ul>
+<li>先执行同步代码，这属于宏任务</li>
+<li>执行栈为空时，查询是否有微任务需要执行</li>
+<li>执行所有的微任务</li>
+<li>必要的话渲染UI</li>
+<li>然后开始下一轮的EventLoop，执行宏任务中的异步代码</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>node中的EventLoop<br>┌───────────────────────┐<br>┌─&gt;│        timers         │<br>│  └──────────┬────────────┘<br>│  ┌──────────┴────────────┐<br>│  │     I/O callbacks     │<br>│  └──────────┬────────────┘<br>│  ┌──────────┴────────────┐<br>│  │     idle, prepare     │<br>│  └──────────┬────────────┘      ┌───────────────┐<br>│  ┌──────────┴────────────┐      │   incoming:   │<br>│  │         poll          │&lt;──connections───     │<br>│  └──────────┬────────────┘      │   data, etc.  │<br>│  ┌──────────┴────────────┐      └───────────────┘<br>│  │        check          │<br>│  └──────────┬────────────┘<br>│  ┌──────────┴────────────┐<br>└──┤    close callbacks    │<br>└───────────────────────┘</li>
+</ol>
+
       
     </div>
     
@@ -463,7 +485,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

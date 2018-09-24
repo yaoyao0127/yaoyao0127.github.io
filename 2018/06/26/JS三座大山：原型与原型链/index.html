@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="什么是原型？JS是一门基于原型的语言，所有的对象都有原型。原型是对象的一个隐藏属性，可以用prototype（正式）和proto(非正式，在es6中成为正式）两种方法来引用。 原型链：实现继承的方式。寻找一个对象的原型会形成一条原型链。 访问对象的全部属性：Object.keys(对象名)12345678function Person()&amp;#123;this.name=&amp;apos;mary&amp;ap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-29T14:39:21.000Z">
+<meta property="og:updated_time" content="2018-09-20T06:14:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS三座大山：原型与原型链">
 <meta name="twitter:description" content="什么是原型？JS是一门基于原型的语言，所有的对象都有原型。原型是对象的一个隐藏属性，可以用prototype（正式）和proto(非正式，在es6中成为正式）两种方法来引用。 原型链：实现继承的方式。寻找一个对象的原型会形成一条原型链。 访问对象的全部属性：Object.keys(对象名)12345678function Person()&amp;#123;this.name=&amp;apos;mary&amp;ap">
@@ -349,7 +349,7 @@
 <li><em>proto</em>是什么？</li>
 </ol>
 <ul>
-<li>每一个对象都有一个<em>proto</em>属性，指向它的构造函数的prototype属性。同一个构造函数生成的每一个实例对象的<em>proto</em>属性都指向该构造函数的prototype属性，所以外界看起来像是继承自prototype，prototype像是实例对象的原型。 </li>
+<li>每一个对象都有一个<em>proto</em>属性，指向它的构造函数的prototype属性。同一个构造函数生成的每一个实例对象的<em>proto</em>属性都指向该构造函数的prototype属性，所以它们在外界看起来像是继承自prototype，prototype像是实例对象的原型。 </li>
 <li>构造函数：构造函数的prototype的<em>proto</em>属性指向Object.prototype,Object.prototype的<em>proto</em>属性最终指向null。</li>
 <li>实例对象：实例对象的<em>proto</em>属性指向其构造函数的prototype属性，constructor属性指向其构造函数。</li>
 <li>每一个构造函数的prototype属性里面都默认有一个constructor属性，指向这个构造函数本身。即每一个prototype对象都有一个constructor属性，指向它的构造函数。所以可以通过修改该属性来修改某原型对象的构造函数，不过这种做法会造成原型链紊乱。</li>
@@ -494,7 +494,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

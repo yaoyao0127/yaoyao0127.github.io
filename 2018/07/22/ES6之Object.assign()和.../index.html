@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="浅拷贝Object.assign(target,…source)将源对象source的属性拷贝给目标对象target，会自动忽略null和undefined的对象。https://blog.csdn.net/wang252949/article/details/79106160 扩展运算符…   将一个数组转为用逗号分隔的参数序列。 12console.log(...[1,2,3]);输出：1">
+<meta name="description" content="浅拷贝 Object.assign(target,…source)将源对象source的属性拷贝给目标对象target，会自动忽略null和undefined的对象。https://blog.csdn.net/wang252949/article/details/79106160 深拷贝 JSON.parse(JSON.stringfy(object))该方法可实现深拷贝，并且是性能最快的方法，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6之Object.assign()和...">
 <meta property="og:url" content="http://yaoyao0127.github.io/2018/07/22/ES6之Object.assign()和.../index.html">
 <meta property="og:site_name" content="爱笑的yaoyao">
-<meta property="og:description" content="浅拷贝Object.assign(target,…source)将源对象source的属性拷贝给目标对象target，会自动忽略null和undefined的对象。https://blog.csdn.net/wang252949/article/details/79106160 扩展运算符…   将一个数组转为用逗号分隔的参数序列。 12console.log(...[1,2,3]);输出：1">
+<meta property="og:description" content="浅拷贝 Object.assign(target,…source)将源对象source的属性拷贝给目标对象target，会自动忽略null和undefined的对象。https://blog.csdn.net/wang252949/article/details/79106160 深拷贝 JSON.parse(JSON.stringfy(object))该方法可实现深拷贝，并且是性能最快的方法，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T08:26:00.000Z">
+<meta property="og:updated_time" content="2018-09-23T08:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6之Object.assign()和...">
-<meta name="twitter:description" content="浅拷贝Object.assign(target,…source)将源对象source的属性拷贝给目标对象target，会自动忽略null和undefined的对象。https://blog.csdn.net/wang252949/article/details/79106160 扩展运算符…   将一个数组转为用逗号分隔的参数序列。 12console.log(...[1,2,3]);输出：1">
+<meta name="twitter:description" content="浅拷贝 Object.assign(target,…source)将源对象source的属性拷贝给目标对象target，会自动忽略null和undefined的对象。https://blog.csdn.net/wang252949/article/details/79106160 深拷贝 JSON.parse(JSON.stringfy(object))该方法可实现深拷贝，并且是性能最快的方法，">
 
 
 
@@ -332,7 +332,8 @@
 
       
         <ol>
-<li>浅拷贝Object.assign(target,…source)<br>将源对象source的属性拷贝给目标对象target，会自动忽略null和undefined的对象。<br><a href="https://blog.csdn.net/wang252949/article/details/79106160" target="_blank" rel="noopener">https://blog.csdn.net/wang252949/article/details/79106160</a></li>
+<li>浅拷贝 Object.assign(target,…source)<br>将源对象source的属性拷贝给目标对象target，会自动忽略null和undefined的对象。<br><a href="https://blog.csdn.net/wang252949/article/details/79106160" target="_blank" rel="noopener">https://blog.csdn.net/wang252949/article/details/79106160</a></li>
+<li>深拷贝 JSON.parse(JSON.stringfy(object))<br>该方法可实现深拷贝，并且是性能最快的方法，但是会自动忽略undefined和symbol、不能序列化函数、不能解决循环引用的对象。</li>
 <li>扩展运算符…</li>
 </ol>
 <ul>
@@ -481,7 +482,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

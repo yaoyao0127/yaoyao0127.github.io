@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="箭头函数()=&amp;gt;{}   ()是为了声明参数，没有参数时可以省去； 花括号中的表达式直接作为返回值时，可以省略花括号。   箭头函数的特点   写法上省去了function 同时对于this的指向有了新的变化   代码实例   ES3、ES5中遍历 12345var evens = [1, 2, 3, 4, 5];var odds = evens.map(function(v) &amp;#123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T08:25:50.000Z">
+<meta property="og:updated_time" content="2018-09-23T02:48:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6之箭头函数">
 <meta name="twitter:description" content="箭头函数()=&amp;gt;{}   ()是为了声明参数，没有参数时可以省去； 花括号中的表达式直接作为返回值时，可以省略花括号。   箭头函数的特点   写法上省去了function 同时对于this的指向有了新的变化   代码实例   ES3、ES5中遍历 12345var evens = [1, 2, 3, 4, 5];var odds = evens.map(function(v) &amp;#123">
@@ -363,7 +363,7 @@
 <li><p>ES3、ES5中函数内部this指向可以改变,默认指向调用该函数的对象</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span> factory = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="string">'a'</span>;</span><br><span class="line">    <span class="keyword">this</span>.b = <span class="string">'b'</span>;</span><br><span class="line">    <span class="keyword">this</span>.c = &#123;</span><br><span class="line">      a: <span class="string">'a+'</span>,</span><br><span class="line">      b: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> factory().c.b());</span><br><span class="line">输出：a+</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>ES6中箭头函数内部本身是没有this的，所以箭头函数中的this直接绑定到它父级的执行上下文里的this</p>
+<li><p>ES6中箭头函数内部本身是没有this的，所以箭头函数中的this直接绑定到它父级的执行上下文里的this。且绑定上下文之后，不会被其他代码所改变。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> factory = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="string">'a'</span>;</span><br><span class="line">    <span class="keyword">this</span>.b = <span class="string">'b'</span>;</span><br><span class="line">    <span class="keyword">this</span>.c = &#123;</span><br><span class="line">      a: <span class="string">'a+'</span>,</span><br><span class="line">      b: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> factory().c.b());</span><br><span class="line">输出：a</span><br></pre></td></tr></table></figure></li>
 </ul>
 
@@ -498,7 +498,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
