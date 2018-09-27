@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="爱笑的yaoyao">
 <meta property="og:description" content="组件状态机思想：react把每一个独立的组件看作是一个状态机，根据不同的输入产生不同的输入，也就是渲染不同的页面。自定义组件首字母必须大写。 state和props   state可以随着用户的交互行为改变改变，用于修改和更新数据，通过getInitialState()方法来初始化state props不可变，用于传递数据，通过getDefaultProps()方法来为props设置默认值 父组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-20T05:27:18.000Z">
+<meta property="og:updated_time" content="2018-09-25T11:37:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react知识点汇总">
 <meta name="twitter:description" content="组件状态机思想：react把每一个独立的组件看作是一个状态机，根据不同的输入产生不同的输入，也就是渲染不同的页面。自定义组件首字母必须大写。 state和props   state可以随着用户的交互行为改变改变，用于修改和更新数据，通过getInitialState()方法来初始化state props不可变，用于传递数据，通过getDefaultProps()方法来为props设置默认值 父组">
@@ -375,6 +375,19 @@
 </li>
 </ol>
 <hr>
+<p>react的diff算法</p>
+<ol>
+<li>层级diff（tree diff）：只在同层进行diff，跨层则直接销毁重建。<br>两棵树只会对同一层次的节点进行比较，忽略DOM节点跨层级的移动操作。React只会对相同颜色方框内的DOM节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个DOM树的比较</li>
+<li>组件diff（component diff）：相同组件类型，修改属性等；不同组件类型，直接销毁重建。</li>
+</ol>
+<ul>
+<li>如果是同类型组件，则按照原策略继续比较virtual DOM树；</li>
+<li>如果不是，则将该组件判断为dirty component，然后整个unmount这个组件下的子节点对其进行替换；</li>
+<li>对于同类型组件，virtual DOM可能并没有发生任何变化，这时我们可以通过shouldCompoenentUpdate钩子来告诉该组件是否进行diff，从而提高大量的性能。</li>
+</ul>
+<ol start="3">
+<li>元素diff（element diff）：通过添加key来为子元素添加唯一标识，元素之间只有顺序变化时则不销毁重建，只修改顺序。</li>
+</ol>
 
       
     </div>
@@ -507,7 +520,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
